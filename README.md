@@ -21,13 +21,10 @@
   <b><a href="https://github.com/zuramai/mazer">X Panel Blog Server</a></b> is an Admin Dashboard Service that can help you develop personal blog. Made by Express.
 </p>
 
-## Table of contents
-
-- [Installation Guide](#installation-guide)
-- [License](#license)
+##
 
 <p align="center">
-  <a href="https://xevorte-blog-server.fly.dev">Demo</a> •
+  <a target="_blank" href="https://xevorte-blog-server.fly.dev">Demo</a> •
   <a href="#installation-guide">Installation</a> •
   <a href="#contribution">Contribution</a> •
   <a href="#license">License</a>
