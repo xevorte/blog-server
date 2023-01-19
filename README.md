@@ -119,5 +119,5 @@ MIT License.
 
 ## Author
 
-Created by <a href="https://github.com/xevorte">Xevorte</a>. <br/>
+Created by <a href="https://github.com/xevorte">Xevorte</a> <br/>
 Template [Mazer](https://github.com/zuramai/mazer) by [@zuramai](https://github.com/zuramai)
