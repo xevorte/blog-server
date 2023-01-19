@@ -24,7 +24,7 @@
 ##
 
 <p align="center">
-  <a target="_blank" href="https://xevorte-blog-server.fly.dev">Demo</a> •
+  <a href="https://xevorte-blog-server.fly.dev" target="_blank">Demo</a> •
   <a href="#installation-guide">Installation</a> •
   <a href="#contribution">Contribution</a> •
   <a href="#license">License</a>
