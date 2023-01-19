@@ -1,0 +1,16 @@
+<%- include ./partials/header.ejs %>
+
+<div id="error">
+    <div class="error-page container">
+        <div class="col-md-8 col-12 offset-md-2">
+            <div class="text-center">
+                <img class="img-error" src="<%= error.status ? `/dist/assets/images/samples/error-${error.status}.svg` : '/dist/assets/images/samples/error-404.svg' %>" alt="Not Found" />
+                <h1 class="error-title"><%= message.substring(0, 250) %></h1>
+                <p class="fs-5 text-gray-600">
+                    <%= error.stack.substring(0, 200) %>
+                </p>
+                <a href="/" class="btn btn-lg btn-outline-primary mt-3">Go Home</a>
+            </div>
+        </div>
+    </div>
+</div>

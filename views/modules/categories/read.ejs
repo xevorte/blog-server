@@ -1,0 +1,130 @@
+<%- include ../../partials/header.ejs -%>
+
+<div id="app">
+
+    <%- include ../../partials/message.ejs -%>
+
+    <%- include ../../partials/sidebar.ejs -%>
+
+    <div id="main" class="d-flex flex-column justify-content-between">
+        <div class="content">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="heading row justify-content-between align-items-center mx-lg-3">
+                <div class="col-md-3 p-lg-0">
+                    <h3 class="mt-1 mb-0">Categories</h3>
+                </div>
+                <div class="col-12 col-md-9 row justify-content-end align-items-center p-lg-0 mt-4 mt-md-0 m-0">
+                    <div class="col-12 col-md-6 p-0 pe-md-5">
+                        <form action="/categories" method="get"
+                            class="form-control d-flex justify-content-between align-items-center rounded-pill py-1 ps-1 pe-3">
+                            <input type="text" class="form-control shadow-none border-0 bg-transparent text-sm py-2"
+                            id="search" name="search" placeholder="Search" autocomplete="off" />
+                            <input type="hidden" id="limit" name="limit" value="3">
+                            <button type="submit" class="btn bg-transparent border-0 p-0 mt-0-5">
+                                <i class="iconly-boldSearch"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 mt-3 mt-md-0">
+                        <a href="/categories/create" class="btn btn-primary btn-block font-semibold icon icon-left">
+                            <i class="bi bi-plus-lg"></i>
+                            <span class="ps-1">Create Category</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content mt-5">
+                <div class="card">
+                    <div class="card-body p-4 pt-1">
+                        <div class="table-responsive">
+                            <table class="table mb-0 table-lg">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Tags</th>
+                                        <th>Status</th>
+                                        <th width="20%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (typeof data !== 'undefined' && data.length > 0) { %>
+                                    <% data.map(el => { %>
+                                    <tr>
+                                        <td class="text-bold-500"><%= index++ %></td>
+                                        <td class="text-bold-500"><%= el.name %></td>
+                                        <td class="text-bold-500"><%= el.description %></td>
+                                        <td class="text-bold-500 flex">
+                                            <% el.tags.forEach(elx => { %>
+                                                <span class="badge bg-primary"><%= elx.name %></span>
+                                            <% }) %>
+                                        </td>
+                                        <td class="text-bold-500">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-circle-fill text-sm text-<%= el.status === 'active' ? 'success' : 'danger' %> m-0"></i>
+                                                <p class="m-0 mt-2 ms-2"><%= el.status.slice(0, 1).toUpperCase() + el.status.slice(1, el.status.length) %></p>
+                                            </div>
+                                        </td>
+                                        <td class="flex">
+                                            <a href="/categories/edit/<%= el._id %>" class="btn btn-primary m-1">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+                                            <form action="/categories/delete/<%= el._id %>?_method=DELETE" method="POST" class="d-inline m-1">
+                                                <button type="submit" class="btn btn-primary"
+                                                    onclick="return confirm('Delete Now? all Posts related to this Category also will be deleted')">
+                                                    <i class="bi bi-x-circle-fill"></i>
+                                                </button>
+                                            </form>
+                                            <form action="/categories/switch/<%= el._id %>?_method=PUT" method="POST" class="d-inline m-1">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="bi bi-<%= el.status === 'nonactive' ? 'toggle2-off' : 'toggle2-on' %>"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                    <% } else { %>
+                                    <tr>
+                                        <th class="text-danger text-center pt-4" colspan="8">No Data</th>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation" class="px-lg-3">
+                    <ul class="pagination pagination-primary">
+                        <li class="page-item <%= currentPage <= 1 ? 'd-none' : '' %>">
+                            <a class="page-link pb-2" href="/categories?&page=<%= currentPage - 1 %>&limit=3">
+                                <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                            </a>
+                        </li>
+                        <% for (let i = 1; i <= pages; i++) { %>
+                            <li class="page-item <%= i === currentPage && 'active' %>">
+                                <a class="page-link pb-2" href="/categories?&page=<%= i %>&limit=3"><%= i %></a>
+                            </li>
+                        <% } %>
+                        <li class="page-item <%= pages <= currentPage ? 'd-none' : '' %>">
+                            <a class="page-link pb-2" href="/categories?&page=<%= currentPage + 1 %>&limit=3">
+                                <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <%- include ../../partials/footer.ejs -%>
+    </div>
+
+</div>
+
+<%- include ../../partials/finisher.ejs -%>

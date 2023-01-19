@@ -1,0 +1,27 @@
+</div>
+<script src="/dist/assets/js/bootstrap.js"></script>
+<script src="/dist/assets/js/app.js"></script>
+<script src="/dist/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script src="/dist/assets/js/pages/form-element-select.js"></script>
+<script src="/quill/dist/quill.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous">
+</script>
+<script>
+  function togglePassword(checkbox) {
+    if (checkbox.checked) {
+      $("#password").attr("type", "text");
+      $("#confirmPassword").attr("type", "text");
+      $("#toggleIcon").attr("class", "bi bi-eye-fill");
+    } else {
+      $("#password").attr("type", "password");
+      $("#confirmPassword").attr("type", "password");
+      $("#toggleIcon").attr("class", "bi bi-eye-slash-fill");
+    }
+  }
+</script>
+</body>
+
+</html>

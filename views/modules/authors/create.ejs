@@ -1,0 +1,109 @@
+<%- include ../../partials/header.ejs -%>
+
+<div id="app">
+
+    <%- include ../../partials/message.ejs -%>
+
+    <%- include ../../partials/sidebar.ejs -%>
+
+    <div id="main" class="d-flex flex-column justify-content-between">
+        <div class="content">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="heading d-flex align-items-center">
+                <a href="/authors" class="text-primary font-semibold icon icon-left me-3">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+                <h3 class="m-0">Create New Author</h3>
+            </div>
+
+            <div class="page-content mt-5">
+                <form action="/authors/create" method="post" enctype="multipart/form-data">
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <div class="form-group mt-4 mb-5">
+                                <label for="avatar" class="d-block text-center">
+                                    <img src="/images/empty_user.jpg" id="preview" alt="avatar" width="100px"
+                                        class="rounded-circle">
+                                </label>
+                                <input type="file" accept="image/*" id="avatar" name="avatar" hidden>
+                            </div>
+                            <div class="row m-0">
+                                <div class="col-12 form-group text-center mb-4">
+                                    <label for="favoriteCategory" class="mb-2">Favorite Category</label>
+                                    <select class="choices form-select" id="favoriteCategory" name="favoriteCategory">
+                                        <% data.categories.forEach(el => { %>
+                                        <option value="<%= el._id %>" <%= el.status === 'nonactive' && 'disabled' %>>
+                                            <%= el.name %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group mt-2">
+                                    <label for="name" class="mb-2">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Enter name" required />
+                                </div>
+                                <div class="col-md-6 form-group mt-2">
+                                    <label for="username" class="mb-2">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        placeholder="Enter username" required />
+                                </div>
+                                <div class="col-md-6 form-group mt-2">
+                                    <label for="email" class="mb-2">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Enter email" required />
+                                </div>
+                                <div class="col-md-6 form-group mt-2">
+                                    <div>
+                                        <label for="password" class="mb-2">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Enter password" required />
+                                    </div>
+                                    <div class="form-check py-0 mt-3">
+                                        <div class="position-relative">
+                                            <p class="position-absolute text-xl m-0" style="top: -3px; left: -28px;">
+                                                <i id="toggleIcon" class="bi bi-eye-slash-fill"></i>
+                                            </p>
+                                            <input class="form-check-input opacity-0" type="checkbox" id="seePassword"
+                                                name="seePassword" onclick="togglePassword(this)" />
+                                        </div>
+                                        <label class="form-check-label text-gray-600 text-sm user-select-none ms-1"
+                                            for="seePassword">
+                                            See Password
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block font-semibold py-2 mb-5">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <%- include ../../partials/footer.ejs -%>
+    </div>
+
+</div>
+
+<%- include ../../partials/finisher.ejs -%>
+
+<script>
+    const readURL = input => {
+        if (input.files && input.files[0]) {
+            const render = new FileReader();
+            render.onload = function (e) {
+                $("#preview").attr("src", e.target.result);
+                $("#preview").attr("height", "100px");
+            }
+            render.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#avatar").change(function () {
+        readURL(this)
+    });
+</script>

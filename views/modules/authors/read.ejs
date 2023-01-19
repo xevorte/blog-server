@@ -1,0 +1,124 @@
+<%- include ../../partials/header.ejs -%>
+
+<div id="app">
+
+    <%- include ../../partials/message.ejs -%>
+
+    <%- include ../../partials/sidebar.ejs -%>
+
+    <div id="main" class="d-flex flex-column justify-content-between">
+        <div class="content">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="heading row justify-content-between align-items-center mx-lg-3">
+                <div class="col-md-3 p-lg-0">
+                    <h3 class="mt-1 mb-0">Authors</h3>
+                </div>
+                <div class="col-12 col-md-9 row justify-content-end align-items-center p-lg-0 mt-4 mt-md-0 m-0">
+                    <div class="col-12 col-md-6 p-0 pe-md-5">
+                        <form action="/authors" method="get"
+                            class="form-control d-flex justify-content-between align-items-center rounded-pill py-1 ps-1 pe-3">
+                            <input type="text" class="form-control shadow-none border-0 bg-transparent text-sm py-2"
+                            id="search" name="search" placeholder="Search" autocomplete="off" />
+                            <input type="hidden" id="limit" name="limit" value="5">
+                            <button type="submit" class="btn bg-transparent border-0 p-0 mt-0-5">
+                                <i class="iconly-boldSearch"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-auto p-0 mt-3 mt-md-0">
+                        <a href="/authors/create" class="btn btn-primary btn-block font-semibold icon icon-left">
+                            <i class="bi bi-plus-lg"></i>
+                            <span class="ps-1">Create Author</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content mt-5">
+                <div class="card">
+                    <div class="card-body p-4 pt-1">
+                        <div class="table-responsive">
+                            <table class="table mb-0 table-lg">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Avatar</th>
+                                        <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Favorite</th>
+                                        <th>Password</th>
+                                        <th width="20%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (typeof data !== 'undefined' && data.length > 0) { %>
+                                    <% data.map(el => { %>
+                                    <tr>
+                                        <td class="text-bold-500"><%= index++ %></td>
+                                        <td class="text-bold-500 m-0">
+                                            <img src="<%= el?.avatar %>" alt="avatar" width="80px" class="rounded-circle">
+                                        </td>
+                                        <td class="text-bold-500 m-0"><%= el?.name %></td>
+                                        <td class="text-bold-500 m-0"><%= el?.username %></td>
+                                        <td class="text-bold-500 m-0"><%= el?.email %></td>
+                                        <td class="text-bold-500">
+                                            <div class="badge bg-primary"><%= el?.favoriteCategory?.name %></div>
+                                        </td>
+                                        <td class="text-bold-500 m-0">*******</td>
+                                        <td class="flex">
+                                            <a href="/authors/edit/<%= el?._id %>" class="btn btn-primary m-1">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+                                            <form action="/authors/delete/<%= el?._id %>?_method=DELETE" method="POST" class="d-inline m-1">
+                                                <button type="submit" class="btn btn-primary"
+                                                    onclick="return confirm('Delete Now? all Posts related to this Author also will be deleted')">
+                                                    <i class="bi bi-x-circle-fill"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                    <% } else { %>
+                                    <tr>
+                                        <th class="text-danger text-center pt-4" colspan="8">No Data</th>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation" class="px-lg-3">
+                    <ul class="pagination pagination-primary">
+                        <li class="page-item <%= currentPage <= 1 ? 'd-none' : '' %>">
+                            <a class="page-link pb-2" href="/authors?&page=<%= currentPage - 1 %>&limit=5">
+                                <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                            </a>
+                        </li>
+                        <% for (let i = 1; i <= pages; i++) { %>
+                            <li class="page-item <%= i === currentPage && 'active' %>">
+                                <a class="page-link pb-2" href="/authors?&page=<%= i %>&limit=5"><%= i %></a>
+                            </li>
+                        <% } %>
+                        <li class="page-item <%= pages <= currentPage ? 'd-none' : '' %>">
+                            <a class="page-link pb-2" href="/authors?&page=<%= currentPage + 1 %>&limit=5">
+                                <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <%- include ../../partials/footer.ejs -%>
+    </div>
+
+</div>
+
+<%- include ../../partials/finisher.ejs -%>

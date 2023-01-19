@@ -1,0 +1,178 @@
+<%- include ../../partials/header.ejs -%>
+
+<div id="app">
+
+    <%- include ../../partials/message.ejs -%>
+
+    <%- include ../../partials/sidebar.ejs -%>
+
+    <div id="main" class="d-flex flex-column justify-content-between">
+        <div class="content">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="heading d-flex align-items-center">
+                <a href="/posts" class="text-primary font-semibold icon icon-left me-3">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+                <h3 class="m-0">Update Current Post</h3>
+            </div>
+
+            <div class="page-content mt-5">
+                <form action="/posts/edit/<%= data.post.slug %>?_method=PUT" method="post">
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <div class="row m-0">
+                                <div class="col-12 col-md-6 mt-3">
+                                    <div class="form-group">
+                                        <label for="title" class="mb-2">Title</label>
+                                        <input type="text" class="form-control" id="title" name="title"
+                                            placeholder="Enter title" value="<%= data.post.title %>"
+                                            style="padding: 11px 13px;" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-3">
+                                    <div class="form-group">
+                                        <label for="category" class="mb-2">Category</label>
+                                        <select class="choices form-select" id="category" name="category">
+                                            <% data.categories.forEach(category => { %>
+                                            <option value="<%= category._id %>"
+                                                <%= category._id.toString() === data.post.category._id.toString() && 'selected' %>
+                                                <%= category.status === 'nonactive' && 'disabled' %>>
+                                                <%= category.name %>
+                                            </option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="form-group">
+                                        <label for="body" class="mb-2">Body</label>
+                                        <input type="hidden" name="body" id="hiddenBody">
+                                        <div id="body" style="height: 300px;">
+                                            <%- data.post.body %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-3">
+                                    <div class="form-group">
+                                        <label for="author" class="mb-2">Author</label>
+                                        <select class="choices form-select" id="author" name="author">
+                                            <% data.authors.forEach(author => { %>
+                                            <option value="<%= author._id %>"
+                                                <%= author._id.toString() === data.post.author._id.toString() && 'selected' %>>
+                                                <%= author.name %>
+                                            </option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-3">
+                                    <div class="form-group">
+                                        <label for="tags" class="mb-2">Tags</label>
+                                        <select class="choices form-select multiple-remove" multiple="multiple"
+                                            id="tags" name="tags">
+                                            <% data.categories.forEach(category => { %>
+                                            <optgroup label="<%= category.name %>">
+                                                <% category.tags.forEach(tag => { %>
+                                                <option value="<%= tag._id %>" <% data.post.tags.map(elz => { %>
+                                                    <%= tag._id.toString() === elz._id.toString() && 'selected' %>
+                                                    <% }) %> <%= tag.status === 'nonactive' && 'disabled' %>>
+                                                    <%= tag.name %>
+                                                </option>
+                                                <% }) %>
+                                            </optgroup>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block font-semibold py-2 mb-5">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <%- include ../../partials/footer.ejs -%>
+    </div>
+
+</div>
+
+<%- include ../../partials/finisher.ejs -%>
+
+<script>
+    // var toolbarOptions = [
+    //     ["image"],
+    //     ["bold", "italic", "underline", "strike"],
+    //     ["blockquote", "code-block"],
+
+    //     [{ "header": 1 }, { "header": 2 }],
+    //     [{ "list": "ordered"}, { "list": "bullet" }],
+    //     [{ "script": "sub"}, { "script": "super" }],
+    //     [{ "indent": "-1"}, { "indent": "+1" }],
+    //     [{ "direction": "rtl" }], 
+
+    //     [{ "size": ["small", false, "large", "huge"] }],
+    //     [{ "header": [1, 2, 3, 4, 5, 6, false] }],
+
+    //     [{ "color": [] }, { "background": [] }],
+    //     [{ "font": [] }],
+    //     [{ "align": [] }],
+
+    //     ["clean"]
+    // ];
+
+    var quill = new Quill("#body", {
+        bounds: "#full-container .editor",
+        modules: {
+            toolbar: [
+                [{
+                    font: []
+                }, {
+                    size: []
+                }],
+                [{
+                    "header": [1, 2, 3, 4, 5, 6, false]
+                }],
+                ["bold", "italic", "underline", "strike"],
+                [{
+                    color: []
+                }, {
+                    background: []
+                }],
+                [{
+                    script: "super"
+                }, {
+                    script: "sub"
+                }],
+                [{
+                        list: "ordered"
+                    },
+                    {
+                        list: "bullet"
+                    },
+                    {
+                        indent: "-1"
+                    },
+                    {
+                        indent: "+1"
+                    },
+                ],
+                ["direction", {
+                    align: []
+                }],
+                ["link", "image", "video"],
+                ["clean"],
+            ],
+        },
+        theme: "snow",
+    });
+
+    $("form").submit(() => {
+        $("#hiddenBody").val(quill.root.innerHTML);
+    });
+</script>

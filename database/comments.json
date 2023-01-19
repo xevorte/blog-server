@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "63c83c261cc4ebf8b5699e01"
+  },
+  "name": "John Doe",
+  "email": "john@example.com",
+  "description": "sangat dinanti nantikan!!!",
+  "post": {
+    "$oid": "63c8341f2d78675d1fc13d61"
+  },
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674066982627"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674066982627"
+    }
+  },
+  "__v": 0
+}]

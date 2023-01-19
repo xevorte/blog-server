@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "63c83b8f5e926610eb18c626"
+  },
+  "avatar": "/images/empty_user.jpg",
+  "name": "Irham Muhammad Shidiq",
+  "username": "irhamms",
+  "password": "$2a$10$Ut1Jrtw9WQoGIedH.QdaMeX2OCuHNbb5kEOwBoihWEPX1Ym2B8zSq",
+  "role": "user",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674066831241"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674066831241"
+    }
+  },
+  "__v": 0
+}]

@@ -1,0 +1,6 @@
+<% if (typeof alert !== 'undefined' && alert?.status?.length !== 0) { %>
+  <div class='fixed-top position-absolute alert alert-<%= alert?.status %> alert-dismissible fade show rounded-0 m-0' role='alert'>
+    <strong class='me-2'><%= alert?.message %></strong><%= alert?.messageDetail %>
+    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+  </div>
+<% } %>

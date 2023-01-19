@@ -1,0 +1,222 @@
+[{
+  "_id": {
+    "$oid": "63bf89b2a1a4b74ccf7d995c"
+  },
+  "name": "Front-End",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673497010629"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673497028421"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63bf89e8a1a4b74ccf7d99ac"
+  },
+  "name": "Back-End",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673497064120"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673760107510"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63bf89eda1a4b74ccf7d99af"
+  },
+  "name": "Illustration",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673497069857"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673936544697"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63bffa7911e51096b9822ecb"
+  },
+  "name": "UI/UX",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673525881120"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673525881120"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c63eb8de2e3fca950d60b9"
+  },
+  "name": "Hot 2022",
+  "status": "nonactive",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673936568489"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673936568489"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c63ebede2e3fca950d60bc"
+  },
+  "name": "Hot 2023",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673936574069"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673936574069"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c63f0ede2e3fca950d60da"
+  },
+  "name": "FPS",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673936654463"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673936654463"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c63f14de2e3fca950d60dd"
+  },
+  "name": "RPG",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673936660458"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673936660458"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c63f1ede2e3fca950d60e0"
+  },
+  "name": "Open World",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673936670746"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673936670746"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c66f10e079ed3817aa303f"
+  },
+  "name": "Blender",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673948944751"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673948944751"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c8320361f4812a7d6855b4"
+  },
+  "name": "History",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674064387411"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674064387411"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c8320e61f4812a7d6855b8"
+  },
+  "name": "Politic",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674064398254"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674064398254"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c8323761f4812a7d6855bc"
+  },
+  "name": "Pandemic",
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674064439537"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674064439537"
+    }
+  },
+  "__v": 0
+}]

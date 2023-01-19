@@ -1,0 +1,177 @@
+[{
+  "_id": {
+    "$oid": "63c8237111dab13be53b6b0c"
+  },
+  "name": "Programming",
+  "description": "all about coding",
+  "tags": [
+    {
+      "$oid": "63bf89b2a1a4b74ccf7d995c"
+    }
+  ],
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674060657504"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674064327982"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c8238011dab13be53b6b13"
+  },
+  "name": "Design",
+  "description": "all about designing",
+  "tags": [
+    {
+      "$oid": "63bffa7911e51096b9822ecb"
+    },
+    {
+      "$oid": "63c66f10e079ed3817aa303f"
+    },
+    {
+      "$oid": "63bf89eda1a4b74ccf7d99af"
+    }
+  ],
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674060672772"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674064027810"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c8238d11dab13be53b6b1a"
+  },
+  "name": "Fashion",
+  "description": "",
+  "tags": [
+    {
+      "$oid": "63c63ebede2e3fca950d60bc"
+    }
+  ],
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674060685928"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674060987044"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c823a111dab13be53b6b23"
+  },
+  "name": "Gaming",
+  "description": "",
+  "tags": [
+    {
+      "$oid": "63c63f14de2e3fca950d60dd"
+    },
+    {
+      "$oid": "63c63f1ede2e3fca950d60e0"
+    },
+    {
+      "$oid": "63c63f0ede2e3fca950d60da"
+    }
+  ],
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674060705167"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674060705167"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c832b161f4812a7d6855dd"
+  },
+  "name": "News",
+  "description": "",
+  "tags": [
+    {
+      "$oid": "63c8320361f4812a7d6855b4"
+    },
+    {
+      "$oid": "63c8320e61f4812a7d6855b8"
+    }
+  ],
+  "status": "nonactive",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674064561972"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674064561972"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c83b0e5e926610eb18c60a"
+  },
+  "name": "Healthy",
+  "description": "take care of your health, because health is parth of faith",
+  "tags": [
+    {
+      "$oid": "63c8323761f4812a7d6855bc"
+    }
+  ],
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674066702901"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674066702901"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c83b265e926610eb18c611"
+  },
+  "name": "Mgodonf Server",
+  "description": "",
+  "tags": [
+    {
+      "$oid": "63bf89e8a1a4b74ccf7d99ac"
+    }
+  ],
+  "status": "active",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674066726688"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674066726688"
+    }
+  },
+  "__v": 0
+}]

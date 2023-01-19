@@ -1,0 +1,76 @@
+<%- include ../../partials/header.ejs -%>
+
+<div id="app">
+
+    <%- include ../../partials/message.ejs -%>
+
+    <%- include ../../partials/sidebar.ejs -%>
+
+    <div id="main" class="d-flex flex-column justify-content-between">
+        <div class="content">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="heading d-flex align-items-center">
+                <a href="/comments" class="text-primary font-semibold icon icon-left me-3">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+                <h3 class="m-0">Create New Comment</h3>
+            </div>
+
+            <div class="page-content mt-5">
+                <form action="/comments/create" method="post">
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <div class="row pt-2 m-0">
+                                <div class="col-md-6 form-group">
+                                    <label for="name" class="mb-2">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Enter name" style="padding: 11px 13px;" required />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="email" class="mb-2">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Enter email" style="padding: 11px 13px;" required />
+                                </div>
+                                <div class="col-md-6 form-group mt-2">
+                                    <label for="post" class="mb-2">Post Title</label>
+                                    <select class="choices form-select" id="post"
+                                        name="post">
+                                        <% data.posts.forEach(el => { %>
+                                        <option value="<%= el._id %>"><%- el.title %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group mt-2">
+                                    <label for="status" class="mb-2">Status</label>
+                                    <select class="choices form-select" id="status" name="status">
+                                        <option value="active" hidden disabled selected>Choose status</option>
+                                        <option value="active">Active</option>
+                                        <option value="nonactive">Nonactive</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a comment here"
+                                            id="description" name="description" style="height: 200px;"></textarea>
+                                        <label for="description">Description</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block font-semibold py-2 mb-5">Save</button>
+                </form>
+            </div>
+        </div>
+
+        <%- include ../../partials/footer.ejs -%>
+    </div>
+
+</div>
+
+<%- include ../../partials/finisher.ejs -%>
