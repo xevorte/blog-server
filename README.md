@@ -18,7 +18,7 @@
 </div>
 
 <p align="center">
-  <b><a href="https://github.com/zuramai/mazer">X Panel Blog Server</a></b> is an Admin Dashboard Service that can help you develop personal blog. Made by Express.
+  <b><a href="https://github.com/xevorte/blog-server">X Panel Blog Server</a></b> is an Admin Dashboard Service that can help you develop personal blog. Made by Express.
 </p>
 
 ##
