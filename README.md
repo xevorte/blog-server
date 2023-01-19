@@ -111,6 +111,8 @@ $ `npm run dev` or `yarn dev`
 
 ```
 
+You can change role on `users` collection into `admin` inside MongoDB Compass for explore the app
+
 ## License
 
 MIT License.
